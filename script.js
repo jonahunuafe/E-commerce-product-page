@@ -39,6 +39,7 @@ function closeMenu() {
 function handlePlus() {
     amountValue++;
     amount.innerText = amountValue;
+    indicator.innerHTML = amountValue;
 }
 
 function handleMinus() {
@@ -46,6 +47,7 @@ function handleMinus() {
         amountValue--;
     }
     amount.innerText = amountValue;
+    indicator.innerHTML = amountValue;
 }
 
 function nextImage() {
@@ -68,6 +70,7 @@ function prevImage() {
 
 function toggleCart() {
     cart.classList.toggle("invisible");
+    event.stopPropagation();
 }
 
 function openLightBox() {
@@ -90,9 +93,9 @@ function addItem() {
                     <p class="product-title">Fall Limited Edition Sneakers</p>
                     <p><span>$125.00</span> x <span class="number">${amountValue}</span> <b class="total">$${total}</b></p>
                 </div>
-                <button class="delete-btn" onclick="deleteItem()"><img src="./images/icon-delete.svg"></button>
+                <button class="delete-btn" onclick="deleteItem()"><img src="./images/icon-delete.svg" id="deleteIcon"></button>
             </div>
-            <button class="checkout-btn">Checkout</button>
+            <button class="checkout-btn" onclick="removeIndicator()">Checkout</button>
         </div>
         `;
         indicator.style.display = "block";
@@ -100,10 +103,24 @@ function addItem() {
     }
 }
 
+function removeIndicator() {
+    indicator.style.display= "none";
+
+    if(amountValue > 0) { 
+        amountValue = 0;
+        amount.innerText = amountValue;
+    }
+}
+
 function deleteItem() {
     wrp.classList.add("empty");
     wrp.innerHTML = `<p>Your cart is empty</p>`;
     indicator.style.display = "none";
+
+    if(amountValue > 0) { 
+        amountValue = 0;
+        amount.innerText = amountValue;
+    }
 }
 
 images.forEach((image) => {
@@ -148,3 +165,12 @@ cartBtn.addEventListener("click", toggleCart);
 mainThumbnail.addEventListener("click", openLightBox);
 closeLightboxBtn.addEventListener("click", closeLightBox);
 addBtn.addEventListener("click", addItem);
+
+document.body.addEventListener("click", function(event) {
+    const hideCartWrap = event.target === cart || event.target.closest(".invisible");
+    const deleteContent = event.target.classList.contains("deleteIcon") || event.target.closest("#deleteIcon");
+
+    if (!hideCartWrap && !deleteContent) {
+      cart.classList.add("invisible");
+    }   
+});
