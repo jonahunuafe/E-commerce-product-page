@@ -465,12 +465,11 @@ img {
 .nav-left-side {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-/* .nav.logo {
+.nav.logo {
   margin-top: -0.5rem;
-} */
+}
   
 .nav-links {
   display: flex;
