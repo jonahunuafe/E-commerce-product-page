@@ -118,7 +118,7 @@ body, html {
   align-items: center;
   gap: 1.5rem;
   max-width: 100%;
-/*   margin-top: 0.3rem; */
+  margin-top: 0.3rem;
 }
 
 .avatar {
@@ -444,6 +444,7 @@ img {
 .overlay {
   position: relative;
   display: flex;
+  margin-top: 0rem;
 }
 
 .invisible-mob {
@@ -478,7 +479,7 @@ img {
 .nav-link {
   cursor: pointer;
   font-weight: 100;
-/*   height: 25px; */
+  height: 25px;
   position: relative;
 }
 
