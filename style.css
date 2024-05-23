@@ -54,7 +54,6 @@ body, html {
 
 /* navbar */
 .nav-container {
-  /* margin-inline: 0; */
   margin: 1rem;
   display: flex;
   justify-content: space-between;
@@ -119,7 +118,7 @@ body, html {
   align-items: center;
   gap: 1.5rem;
   max-width: 100%;
-  margin-top: 0.3rem;
+/*   margin-top: 0.3rem; */
 }
 
 .avatar {
