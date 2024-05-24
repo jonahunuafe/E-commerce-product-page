@@ -460,7 +460,7 @@ img {
   align-content: center;
   position: relative;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
-/*   margin-top: -0.5rem; */
+  margin-top: 0rem;
 } 
 
 .nav-left-side {
@@ -482,6 +482,7 @@ img {
   font-weight: 100;
   height: 25px;
   position: relative;
+  margin: 0rem;
   padding-top: 2.3rem;
 }
 
